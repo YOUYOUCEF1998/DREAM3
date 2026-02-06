@@ -1,0 +1,706 @@
+/* ============================================
+   DREAM Streetwear Shop - Pure CSS
+   ============================================ */
+
+/* CSS Variables */
+:root {
+  --background: #ffffff;
+  --foreground: #0d0d0d;
+  --border: #e5e5e5;
+  --muted: #737373;
+  --secondary: #f5f5f5;
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base */
+body {
+  font-family: 'Pixelify Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* ============================================
+   Welcome Overlay
+   ============================================ */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+
+.welcome-overlay.hidden {
+  display: none;
+}
+
+.welcome-overlay.fade-out {
+  opacity: 0;
+}
+
+.welcome-logo {
+  margin-bottom: 3rem;
+  color: var(--foreground);
+
+}
+
+.welcome-title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.welcome-tagline {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+.welcome-btn {
+  background-color: var(--foreground);
+  color: var(--background);
+  padding: 1rem 3rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border: none;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms ease;
+}
+
+.welcome-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-btn.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--foreground);
+  transition: opacity 200ms;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+color: white;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    height: 80vh;
+  }
+}
+
+.hero-emoji {
+  font-size: 12rem;
+  opacity: 0.5;
+}
+
+.hero-image {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-text {
+  color: white;
+  font-size: 0.875rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+@media (min-width: 640px) {
+  .hero-text {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   Products Grid
+   ============================================ */
+.products-section {
+  padding: 3rem 0;
+}
+
+@media (min-width: 640px) {
+  .products-section {
+    padding: 4rem 0;
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ============================================
+   Product Card
+   ============================================ */
+.product-card {
+  display: block;
+  padding: 1rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+
+@media (min-width: 640px) {
+  .product-card {
+    padding: 1.5rem;
+  }
+}
+
+.product-card.visible {
+  opacity: 1;
+}
+
+.product-image-container {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: var(--secondary);
+  margin-bottom: 0.75rem;
+}
+
+.product-emoji-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-emoji {
+  font-size: 5rem;
+  transition: transform 300ms ease;
+}
+
+.product-card:hover .product-emoji {
+  transform: scale(1.1);
+}
+
+.product-emoji-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-emoji-large {
+  font-size: 10rem;
+}
+
+.product-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--foreground);
+  background-color: var(--background);
+  z-index: 10;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 500ms ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.02);
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.product-colors {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.color-swatch {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 200ms;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================
+   Features
+   ============================================ */
+.features-section {
+  padding: 3rem 0;
+  background-color: var(--secondary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  color: var(--foreground);
+}
+
+.feature-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.feature-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background-color: var(--background);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 0;
+}
+
+.footer-accordions {
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-accordion {
+  border-top: 1px solid var(--border);
+}
+
+.accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.accordion-icon {
+  font-size: 1.25rem;
+  transition: transform 200ms;
+}
+
+.accordion-content {
+  display: none;
+  padding-bottom: 1rem;
+}
+
+.accordion-content.open {
+  display: block;
+}
+
+.accordion-content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.accordion-content a {
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: color 200ms;
+}
+
+.accordion-content a:hover {
+  color: var(--foreground);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.social-links a {
+  color: var(--foreground);
+  transition: opacity 200ms;
+}
+
+.social-links a:hover {
+  opacity: 0.7;
+}
+
+.copyright {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.copyright p {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Product Detail Page
+   ============================================ */
+.product-detail {
+  padding: 2rem 0;
+}
+
+.product-detail-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-main-image {
+  aspect-ratio: 3/4;
+  background-color: var(--secondary);
+}
+
+.product-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.product-thumbnail {
+  width: 80px;
+  height: 100px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 200ms;
+}
+
+.product-thumbnail.active,
+.product-thumbnail:hover {
+  border-color: var(--foreground);
+}
+
+.product-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-price-detail {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.product-description {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.size-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.size-selector label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.size-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.size-btn {
+  min-width: 3rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  background: none;
+  font-size: 0.875rem;
+  transition: all 200ms;
+}
+
+.size-btn:hover,
+.size-btn.selected {
+  background-color: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--foreground);
+  color: var(--background);
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: opacity 200ms;
+}
+
+.add-to-cart-btn:hover {
+  opacity: 0.9;
+}
+
+.product-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-details-list li {
+  font-size: 0.875rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.product-details-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+/*
+  ========================================
+  Header & Logo Styles
+  ========================================
+*/
+.header .logo-link {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header .logo-img {
+  height: 100px; /* <-- ADJUST YOUR LOGO HEIGHT HERE */
+  width: auto;  /* This maintains the correct aspect ratio */
+}
+
+/* ============================================
+   Social Icons in Footer
+   ============================================ */
+.social-icon {
+  height: 24px; /* Adjust the icon size as needed */
+  width: auto;
+}
+/* ============================================
+   Feature Section Icons
+   ============================================ */
+.feature-img {
+  height: 48px; /* Adjust the icon size as needed */
+  width: auto;
+}
+
+
+/* ============================================
+   Hero Section Styles
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 80vh; /* Sets a good height for desktops */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+color: white;
+  
+  /* --- Add these lines for your background image --- */
+  background-image: url('pal.jpg');
+  background-size: cover;       /* Ensures the image covers the area without distortion */
+  background-position: center;  /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+/* This media query makes the hero section a bit shorter on mobile for a better fit */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+  }
+}
