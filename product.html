@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - DREAM</title>
+  <meta name="description" content="DREAM - Premium streetwear clothing.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+    <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="nn.png" alt="DREAM Logo" class="logo-img">
+      </a>
+    </div>
+  </header>
+
+
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-detail-grid">
+        <!-- Gallery -->
+        <div class="product-gallery">
+          <div class="product-main-image product-emoji-display">
+            <span id="main-emoji" class="product-emoji-large"></span>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="product-info-detail">
+          <h1 id="product-title" class="product-title"></h1>
+          <p id="product-price" class="product-price-detail"></p>
+          <p id="product-description" class="product-description"></p>
+
+          <!-- Size Selector -->
+          <div class="size-selector">
+            <label>SIZE</label>
+            <div id="size-options" class="size-options">
+              <!-- Sizes will be inserted by JS -->
+            </div>
+          </div>
+
+          <!-- Add to Cart -->
+          <button class="add-to-cart-btn" onclick="alert('Added to cart!')">
+            ADD TO CART
+          </button>
+
+          <!-- Details -->
+          <div>
+            <label style="font-weight: 600; font-size: 0.875rem;">DETAILS</label>
+            <ul id="product-details" class="product-details-list">
+              <!-- Details will be inserted by JS -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="copyright">
+        <p>© 2026 DREAM CLUB ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

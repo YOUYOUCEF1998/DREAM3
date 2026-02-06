@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <!-- We only need the main stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!--     YOUR EXACT HEADER, COPIED FROM INDEX     -->
+    <!-- ============================================== -->
+      <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo-link">
+        <img src="nn.png" alt="DREAM Logo" class="logo-img">
+      </a>
+    </div>
+  </header>
+>
+
+
+    <!-- Main Product Details Section -->
+    <main class="product-details-container">
+        <!-- Left Column: Image Gallery -->
+        <div class="gallery-column">
+            <div id="main-image-container"><img id="main-product-image" src="" alt="Main product view"></div>
+            <div id="thumbnail-container" class="thumbnail-gallery"></div>
+        </div>
+
+        <!-- Right Column: Product Information -->
+        <div class="info-column">
+            <h1 id="product-name"></h1>
+            <p id="product-price" class="price"></p>
+            <div class="options-section">
+                <p class="option-title">COLOR</p>
+                <div id="color-selector" class="color-swatches"></div>
+            </div>
+            <div class="options-section">
+                <p class="option-title">SIZE</p>
+                <div id="size-selector" class="size-buttons"></div>
+            </div>
+            <button id="add-to-cart-btn">ADD TO CART</button>
+            <a href="https://wa.me/213781392187" target="_blank" id="whatsapp-btn">ORDER ON WHATSAPP</a>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">DESCRIPTION</button>
+                    <div class="accordion-panel"><p id="product-description"></p></div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">DETAILS</button>
+                    <div class="accordion-panel"><ul id="product-details-list"></ul></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- ============================================= -->
+    <!--     YOUR EXACT FOOTER, COPIED FROM INDEX    -->
+    <!-- ============================================= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-accordions">
+          <div class="footer-accordion">
+            <button class="accordion-btn" data-target="about">
+              <span>ABOUT</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content" id="about">
+              <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Vision</a></li>
+                <li><a href="#">Sustainability</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-accordion">
+            <button class="accordion-btn" data-target="others">
+              <span>OTHERS</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content" id="others">
+              <ul>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Size Guide</a></li>
+                <li><a href="#">Shipping</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-accordion">
+            <button class="accordion-btn" data-target="terms">
+              <span>T&C</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content" id="terms">
+              <ul>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Returns</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="Pinterest">Pinterest</a>
+        </div>
+        <div class="footer-copy">
+          © 2026 DREAM — ALL RIGHTS RESERVED
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- JavaScript for this page -->
+    <script src="details-script.js"></script>
+
+</body>
+</html>
